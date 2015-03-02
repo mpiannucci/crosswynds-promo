@@ -1,4 +1,5 @@
 import web
+import views
 from config import urls
 
 # Define the web templates
