@@ -5,6 +5,7 @@ class IPAddress(db.Model):
     address = db.StringProperty()
     count = db.IntegerProperty()
     created = db.DateTimeProperty(auto_now_add=True)
+    modified = db.DateTimeProperty(auto_now=True)
 
 def create_ip_address(address):
     ''' Add a new IP address entry '''
@@ -23,7 +24,8 @@ def get_ip_count(address):
     ''' Check the hits from the given ip address '''
     address_query = db.Query(IPAddress)
     address_query.filter('address =', address)
-    if address_query.count() > 0:
-        return address_query.get().count
+    if address_query.count(limit=1) > 0:
+        address = address_query.get()
+        return address.count
     else:
         return 0

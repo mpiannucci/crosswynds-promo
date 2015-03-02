@@ -29,3 +29,39 @@ def base (page):
 base = CompiledTemplate(base, 'templates/base.html')
 join_ = base._join; escape_ = base._escape
 
+# coding: utf-8
+def new():
+    __lineoffset__ = -5
+    loop = ForLoop()
+    self = TemplateResult(); extend_ = self.extend
+    extend_([u'hello NEW world\n'])
+
+    return self
+
+new = CompiledTemplate(new, 'templates/new.html')
+join_ = new._join; escape_ = new._escape
+
+# coding: utf-8
+def privacy():
+    __lineoffset__ = -5
+    loop = ForLoop()
+    self = TemplateResult(); extend_ = self.extend
+    extend_([u'\n'])
+
+    return self
+
+privacy = CompiledTemplate(privacy, 'templates/privacy.html')
+join_ = privacy._join; escape_ = privacy._escape
+
+# coding: utf-8
+def refer():
+    __lineoffset__ = -5
+    loop = ForLoop()
+    self = TemplateResult(); extend_ = self.extend
+    extend_([u'hello REFERAL world\n'])
+
+    return self
+
+refer = CompiledTemplate(refer, 'templates/refer.html')
+join_ = refer._join; escape_ = refer._escape
+
