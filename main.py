@@ -3,7 +3,7 @@ from promoapp.views import *
 
 # Map out the urls
 urls = (
-    '/', 'Index'
+    '/', 'New'
 )
 
 # Define the web templates
