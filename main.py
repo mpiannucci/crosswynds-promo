@@ -1,4 +1,5 @@
 import web
+from promoapp.views import *
 
 # Map out the urls
 urls = (
@@ -15,18 +16,14 @@ render = web.template.render('templates', base='base', globals=t_globals)
 # Create the web app and the sessions
 app = web.application(urls, globals())
 
-# Start the Web page class definitions
-class Index:
-    ''' Show the home page '''
-    def GET(self):
-        return "Hello World"
-
+# Define some callbacks for page not founds
 def notfound():
     ''' Create the not found page '''
     return web.notfound('Sorry, the page you were looking for was not found.')
     # You can use template result like below, either is ok:
     # return web.notfound(render.notfound())
-    # return web.notfound(str(render.notfound()))
+    # return web.no
+    # tfound(str(render.notfound()))
 
 def internalerror():
     ''' Create the internal error page '''
