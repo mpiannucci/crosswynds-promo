@@ -11,29 +11,10 @@ t_globals = {
     'datestr': web.datestr,
     'len': len
 }
-render = web.template.render('templates', base='base', globals=t_globals)
+web.render = render = web.template.render('templates', base='base', globals=t_globals)
 
 # Create the web app and the sessions
 app = web.application(urls, globals())
-
-
-class New:
-    ''' The page shown to new users to prompt a sign up'''
-    def GET(self):
-        return render.new()
-
-class Refer:
-    ''' 
-    The page shown to users after they have signed up. This page tracks 
-    referal counts and shows rewards
-    '''
-    def GET(self):
-        return render.refer()
-
-class PrivacyPolicy:
-    ''' Show the user the privacy policy '''
-    def GET(self):
-        return render.private()
 
 # Define some callbacks for page not founds
 def notfound():
