@@ -1,1 +1,1 @@
-from mailer import *
+from promo_mailer import *
