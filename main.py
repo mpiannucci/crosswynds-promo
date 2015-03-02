@@ -1,10 +1,5 @@
 import web
-
-
-# Map out the urls
-urls = (
-    '/', 'New'
-)
+from config import urls
 
 # Define the web templates
 t_globals = {
