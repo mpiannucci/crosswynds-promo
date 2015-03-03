@@ -1,5 +1,4 @@
 import web
-import views
 from config import urls
 
 # Define the web templates
@@ -8,6 +7,9 @@ t_globals = {
     'len': len
 }
 web.render = render = web.template.render('templates', base='base', globals=t_globals)
+
+# Load the view controllers into the namespace now that the templates are loaded
+from views import *
 
 # Create the web app and the sessions
 app = web.application(urls, globals())
