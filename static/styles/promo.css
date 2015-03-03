@@ -1,1 +1,19 @@
-// Coming soon
+body {
+    background: #EDECEA;
+}
+
+.comingsoon-jumbotron {
+    background-image: url("../images/image.jpg");
+    background-size: cover;
+    color: #FFFFFF;
+    padding-bottom: 40%;
+    margin-bottom: 0;
+}
+
+#SignUpArea {
+    text-align: center;
+}
+
+.email-form {
+    margin: 10px;
+}

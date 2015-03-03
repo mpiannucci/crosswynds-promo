@@ -4,7 +4,7 @@ $def with (page)
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crosswynds Traders</title>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/styles/promo.css">
@@ -14,10 +14,12 @@ $def with (page)
 </head>
 
 <body>
-
-<!-- TODO: Make the boilerplate base template -->
-$:page
-
+    <div id="contentContainer" class="container-fluid">
+        <!-- Create the Main Content layout.-->
+        <!-- Get the Main Content from the server -->
+        $:page
+        <!-- Ends Main Content Layout -->
+    </div>
 </body>
 
 </html>
