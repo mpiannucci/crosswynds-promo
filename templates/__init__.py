@@ -37,6 +37,18 @@ base = CompiledTemplate(base, 'templates/base.html')
 join_ = base._join; escape_ = base._escape
 
 # coding: utf-8
+def ip_block():
+    __lineoffset__ = -5
+    loop = ForLoop()
+    self = TemplateResult(); extend_ = self.extend
+    extend_([u'Too many attempts from your computer\n'])
+
+    return self
+
+ip_block = CompiledTemplate(ip_block, 'templates/ip_block.html')
+join_ = ip_block._join; escape_ = ip_block._escape
+
+# coding: utf-8
 def new (form):
     __lineoffset__ = -4
     loop = ForLoop()

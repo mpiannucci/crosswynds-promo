@@ -20,6 +20,12 @@ def delete_ip_address(address):
     address_query.filter('address =', address)
     db.delete(address_query.get())
 
+def get_ip_address(address):
+    ''' Get an ip address from the datastore '''
+    address_query = db.Query(IPAddress)
+    address_query.filter('address =', address)
+    return address_query.get()
+
 def get_ip_count(address):
     ''' Check the hits from the given ip address '''
     address_query = db.Query(IPAddress)
@@ -29,3 +35,11 @@ def get_ip_count(address):
         return address.count
     else:
         return 0
+
+def increment_ip_count(address):
+    ''' Increment the ip count of the login address '''
+    address_query = db.Query(IPAddress)
+    address_query.filter('address =', address)
+    if address_query.count(limit=1) > 0:
+        address = address_query.get()
+        address.count += 1

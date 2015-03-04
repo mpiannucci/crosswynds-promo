@@ -17,11 +17,13 @@ def create_user(email, referer):
     # Get the newest user and increment the id counter
     query = db.Query(User)
     query.order('-created')
-    if len(query):
+    if query.count(limit=1) > 0:
         new_user.referal_id = query[0].referal_id + 1
     else:
         new_user.referal_id = 1
-    query.put()
+    new_user.put()
+
+    return new_user.referal_id
 
 def delete_user(email):
     ''' Delete a user from the database '''
@@ -29,11 +31,23 @@ def delete_user(email):
     user_query.filter('email =', email)
     db.delete(user_query.get())
 
+def get_user(email):
+    ''' Get a user by email '''
+    user_query = db.Query(User)
+    user_query.filter('email =', email)
+    return user_query.get()
+
+def get_user_by_refid(refid):
+    ''' Get a user by their referal id '''
+    user_query = db.Query(User)
+    user_query.filter('referal_id =', refid)
+    return user_query.get()
+
 def does_user_exist(email):
     ''' Get a boolean if the user exists in the database '''
     user_query = db.Query(User)
     user_query.filter('email =', email)
-    return len(user_query) > 0
+    return user_query.count(limit=1) > 0
 
 def get_referal_count(email):
     ''' Get the number of referals for a given user '''
