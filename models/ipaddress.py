@@ -43,3 +43,4 @@ def increment_ip_count(address):
     if address_query.count(limit=1) > 0:
         address = address_query.get()
         address.count += 1
+        address.put()

@@ -16,17 +16,22 @@ email_form = web.form.Form(
 class Index:
     ''' The base handler for the web page '''
     def GET(self, referer=0):
-        self.referer = referer
         form = email_form()
         return render.new(form)
 
     def POST(self, referer=0):
+        if referer is None:
+            # Handle an empty url
+            referer = 0
+
         form = email_form()
         if form.validates():
             email = form.d.email
             ip = web.ctx.ip
 
             if models.does_user_exist(email):
+                # If the user already exists, treat this as a log in and show 
+                # them their referal page
                 user = models.get_user(email)
                 raise web.seeother('/refer/' + str(user.referal_id))
             else:
@@ -52,12 +57,12 @@ class Refer:
     referal counts and shows rewards
     '''
     def GET(self, refid=0):
-        try:
-            user_id = int(refid)
-        except ValueError:
-            return render.refer(0)
+        if refid is None:
+            # Handle an empty url
+            refid = 0
+
         # Get the score and pass it to the referal page
-        score = models.get_referal_count(user_id)
+        score = models.get_referal_count(int(refid))
         return render.refer(score)
 
 class PrivacyPolicy:
