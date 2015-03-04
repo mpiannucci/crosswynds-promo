@@ -86,11 +86,12 @@ privacy = CompiledTemplate(privacy, 'templates/privacy.html')
 join_ = privacy._join; escape_ = privacy._escape
 
 # coding: utf-8
-def refer():
-    __lineoffset__ = -5
+def refer (count):
+    __lineoffset__ = -4
     loop = ForLoop()
     self = TemplateResult(); extend_ = self.extend
-    extend_([u'hello REFERAL world\n'])
+    extend_([u'\n'])
+    extend_([u'Score: ', escape_(count, True), u'\n'])
 
     return self
 

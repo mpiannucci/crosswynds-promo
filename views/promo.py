@@ -52,7 +52,8 @@ class Refer:
     referal counts and shows rewards
     '''
     def GET(self, refid=0):
-        return render.refer()
+        score = models.get_referal_count(int(refid))
+        return render.refer(score)
 
 class PrivacyPolicy:
     ''' Show the user the privacy policy '''
