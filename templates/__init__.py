@@ -46,7 +46,7 @@ def new (form):
     extend_([u'    <div id="comingSoonHeader" class="col-lg-12 jumbotron comingsoon-jumbotron">\n'])
     extend_([u'        <!-- Header Image -->\n'])
     extend_([u'    </div>\n'])
-    extend_([u'    <div id="SignUpArea" class="col-sm-6">\n'])
+    extend_([u'    <div id="signUpArea" class="col-sm-6">\n'])
     extend_([u'        <div class="container">\n'])
     extend_([u'            <h3>Sign up early and earn rewards</h3>\n'])
     extend_([u'            ', escape_(form.render_css(), False), u'\n'])

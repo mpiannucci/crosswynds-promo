@@ -10,7 +10,7 @@ class New:
             description='',
             placeholder='Enter your email',
             class_='form-horizontal email-form'),
-        web.form.Button('Sign Up', class_='btn btn-primary email-form')
+        web.form.Button('Enter', class_='btn btn-primary email-form')
     )
 
     def GET(self):
