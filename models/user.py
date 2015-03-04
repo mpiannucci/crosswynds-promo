@@ -52,13 +52,6 @@ def does_user_exist(email):
 
 def get_referal_count(refid):
     ''' Get the number of referals for a given user '''
-    found_user = get_user_by_refid(refid)
-
-    if found_user is None:
-        # Handle there not being any users found
-        return 0
-
-    # Find all the users with the user as a referer
     ref_query = db.Query(User)
-    ref_query.filter('referer =', found_user.referal_id)
+    ref_query.filter('referer =', refid)
     return ref_query.count()
