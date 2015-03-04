@@ -4,13 +4,14 @@ render = web.render
 
 class New:
     ''' The page shown to new users to prompt a sign up'''
+    email_validator = web.form.regexp(r".*@.*", "Must be a valid email address")
     email_form = web.form.Form(
-        web.form.Textbox('email', web.form.notnull,
+        web.form.Textbox('email', email_validator,
             size=23,
             description='',
             placeholder='Enter your email',
             class_='form-horizontal email-form'),
-        web.form.Button('Enter', class_='btn btn-primary email-form')
+        web.form.Button('Enter', type='submit', description='Enter', class_='btn btn-primary email-form')
     )
 
     def GET(self):
@@ -19,7 +20,11 @@ class New:
 
     def POST(self):
         form = self.email_form()
-        return render.new(form)
+        if form.validates():
+            # TODO: Create a new user object
+            return render.refer()
+        else:
+            return render.new(form)
 
 class Refer:
     ''' 
