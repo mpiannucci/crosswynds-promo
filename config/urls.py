@@ -2,5 +2,6 @@
 # The handlers/view controllers are defined in the 'views' module
 urls = (
     '/(\d+)', 'Index',
-    '/refer/(\d+)', 'Refer'
+    '/refer/(\d+)', 'Refer',
+    '/privacy', 'PrivacyPolicy'
 )

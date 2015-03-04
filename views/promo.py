@@ -58,4 +58,4 @@ class Refer:
 class PrivacyPolicy:
     ''' Show the user the privacy policy '''
     def GET(self):
-        return render.private()
+        return render.privacy()

@@ -78,7 +78,7 @@ def privacy():
     __lineoffset__ = -5
     loop = ForLoop()
     self = TemplateResult(); extend_ = self.extend
-    extend_([u'\n'])
+    extend_([u'Privacyyyyy\n'])
 
     return self
 

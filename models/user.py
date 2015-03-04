@@ -45,17 +45,16 @@ def get_user_by_refid(refid):
 
 def does_user_exist(email):
     ''' Get a boolean if the user exists in the database '''
-    user_query = db.Query(User)
-    user_query.filter('email =', email)
-    return user_query.count(limit=1) > 0
+    user = get_user(email)
+    if user is None:
+        return False
+    return True
 
 def get_referal_count(refid):
     ''' Get the number of referals for a given user '''
-    user_query = db.Query(User)
-    user_query.filter('referal_id =', refid)
-    found_user = user_query.get()
+    found_user = get_user_by_refid(refid)
 
-    if found_user == None:
+    if found_user is None:
         # Handle there not being any users found
         return 0
 
