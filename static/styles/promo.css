@@ -36,6 +36,11 @@ body {
     text-align: center;
 }
 
+.social-logo {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 #scoreArea {
     text-align: center;
 }

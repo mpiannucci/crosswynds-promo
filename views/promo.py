@@ -47,6 +47,10 @@ class Index:
                         models.create_ip_address(ip)
                     # Create a new user
                     refid = models.create_user(email, int(referer))
+                    ref_url = "/" + str(refid)
+                    
+                    # TODO: Send confirmation email
+                    
                     raise web.seeother('/refer/' + str(refid))
         else:
             return render.new(form)
