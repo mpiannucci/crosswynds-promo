@@ -21,6 +21,21 @@ body {
 .confirmation-header {
     background-color: #00c6ff;
     color: #FFFFFF;
+    text-align: center;
+}
+
+.sharing-jumbotron {
+    background-image: url("../images/coverphoto.jpg");
+    background-size: cover;
+    color: #FFFFFF;
+    padding-bottom: 27%;
     margin-bottom: 10px;
+}
+
+#sharingArea {
+    text-align: center;
+}
+
+#scoreArea {
     text-align: center;
 }
