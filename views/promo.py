@@ -1,5 +1,6 @@
 import web
 import models
+import mailers
 
 render = web.render
 
@@ -23,7 +24,6 @@ class Index:
         if referer is None:
             # Handle an empty url
             referer = 0
-
         form = email_form()
         if form.validates():
             email = form.d.email

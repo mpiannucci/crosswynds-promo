@@ -1,0 +1,1 @@
+application_email = "Crosswynds Prelaunch <tester@crosswynds-promo.appspotmail.com>"
