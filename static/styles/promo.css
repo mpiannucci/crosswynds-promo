@@ -17,3 +17,10 @@ body {
 .email-form {
     margin: 10px;
 }
+
+.confirmation-header {
+    background-color: #00c6ff;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    text-align: center;
+}

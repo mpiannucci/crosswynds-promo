@@ -91,7 +91,21 @@ def refer (count):
     loop = ForLoop()
     self = TemplateResult(); extend_ = self.extend
     extend_([u'\n'])
-    extend_([u'Score: ', escape_(count, True), u'\n'])
+    extend_([u'<div class="row">\n'])
+    extend_([u'    <div id="confimationHeader" class="col-lg-12 confirmation-header">\n'])
+    extend_([u'        <div class="container">\n'])
+    extend_([u'            <h4>Thanks for signing up!</h4>\n'])
+    extend_([u'        </div>\n'])
+    extend_([u'    </div>\n'])
+    extend_([u'    <div id="sharingArea" class="col-lg-12">\n'])
+    extend_([u'        Share with your friends on twitter and facebook to earn rewards!\n'])
+    extend_([u'    </div>\n'])
+    extend_([u'    <div id="scoreArea" class="col-lg-12">\n'])
+    extend_([u'        <div class="container">\n'])
+    extend_([u'            Score: ', escape_(count, True), u'\n'])
+    extend_([u'        </div>\n'])
+    extend_([u'    </div>\n'])
+    extend_([u'</div>\n'])
 
     return self
 
