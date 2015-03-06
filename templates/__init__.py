@@ -17,6 +17,7 @@ def base (page):
     extend_([u'    <link rel="stylesheet" href="/static/styles/promo.css">\n'])
     extend_([u'    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>\n'])
     extend_([u'    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>\n'])
+    extend_([u'    <script src="/static/scripts/bootstrap.progress-bar-labels.js"></script>\n'])
     extend_([u'    <script src="/static/scripts/promo.js"></script>\n'])
     extend_([u'</head>\n'])
     extend_([u'\n'])
@@ -93,6 +94,7 @@ def refer (count, ref_url):
     extend_([u'\n'])
     extend_([u'<div class="row">\n'])
     extend_([u'    <div id="confimationHeader" class="col-lg-12 confirmation-header">\n'])
+    extend_([u'        <!-- Header bar -->\n'])
     extend_([u'        <div class="container">\n'])
     extend_([u'            <h4>Thanks for signing up!</h4>\n'])
     extend_([u'        </div>\n'])
@@ -106,14 +108,20 @@ def refer (count, ref_url):
     extend_([u'                <h3>Share your unique link with your friends to earn rewards!</h3>\n'])
     extend_([u'                <h4>The more of your friends join, the more free merchandise you earn.</h4>\n'])
     extend_([u'            </div>\n'])
+    extend_([u'\n'])
+    extend_([u'            <!-- Referral URL -->\n'])
     extend_([u'            <div class="col-sm-4 col-sm-offset-3 center-align">\n'])
     extend_([u'                <input id="referral_display" class="form-control input ref-url-display" type="text" value=\'', escape_(ref_url, True), u"' readonly>\n"])
     extend_([u'            </div>\n'])
+    extend_([u'\n'])
+    extend_([u'            <!-- Facebook Link -->\n'])
     extend_([u'            <div class="col-sm-1">\n'])
     extend_([u'                <a href="http://www.facebook.com/sharer/sharer.php?u=', escape_(ref_url, True), u'&title=Matthew">\n'])
     extend_([u'                    <img class="social-logo" src="/static/images/facebook_logo.png" />\n'])
     extend_([u'                </a>\n'])
-    extend_([u'            </div>                       \n'])
+    extend_([u'            </div>\n'])
+    extend_([u'\n'])
+    extend_([u'            <!-- Twitter Link -->                  \n'])
     extend_([u'            <div class="col-sm-1">\n'])
     extend_([u'                <a href="http://twitter.com/share?url=', escape_(ref_url, True), u'&text=Imhappy">\n'])
     extend_([u'                    <img class="social-logo" src="/static/images/twitter_logo.png" />\n'])
@@ -123,38 +131,100 @@ def refer (count, ref_url):
     extend_([u'    </div>\n'])
     extend_([u'    <div id="scoreArea" class="col-lg-12 center-align">\n'])
     extend_([u'        <div class="container">\n'])
+    count = 13
+    extend_([u'\n'])
+    extend_([u'            <!-- Friend Referral Score -->\n'])
     extend_([u'            <h3>', escape_(count, True), u' of your friends have joined!</h3>\n'])
+    extend_([u'\n'])
+    extend_([u'            <!-- Reward Pictures -->\n'])
     extend_([u'            <div class="row">\n'])
-    extend_([u'                <div class="col-sm-3">\n'])
-    extend_([u'                    <img class="reward-image img-circle" src="/static/images/reward_template.png">\n'])
+    extend_([u'                <div class="col-sm-3">  \n'])
+    if count >= 5:
+        extend_(['                    ', u'<img class="reward-image img-circle" src="/static/images/reward_template.png">\n'])
+    else:
+        extend_(['                    ', u'<img class="reward-image img-circle img-bw" src="/static/images/reward_template.png">                \n'])
     extend_([u'                    <h4>5 Friends</h4>\n'])
     extend_([u'                </div>\n'])
     extend_([u'                <div class="col-sm-3">\n'])
-    extend_([u'                    <img class="reward-image img-circle" src="/static/images/reward_template.png">\n'])
+    if count >= 10:
+        extend_(['                    ', u'<img class="reward-image img-circle" src="/static/images/reward_template.png">\n'])
+    else:
+        extend_(['                    ', u'<img class="reward-image img-circle img-bw" src="/static/images/reward_template.png">\n'])
     extend_([u'                    <h4>10 Friends</h4>\n'])
     extend_([u'                </div>\n'])
     extend_([u'                <div class="col-sm-3">\n'])
-    extend_([u'                    <img class="reward-image img-circle" src="/static/images/reward_template.png">\n'])
+    if count >=25:
+        extend_(['                    ', u'<img class="reward-image img-circle" src="/static/images/reward_template.png">\n'])
+    else:
+        extend_(['                    ', u'<img class="reward-image img-circle img-bw" src="/static/images/reward_template.png">\n'])
     extend_([u'                    <h4>25 Friends</h4>\n'])
     extend_([u'                </div>\n'])
     extend_([u'                <div class="col-sm-3">\n'])
-    extend_([u'                    <img class="reward-image img-circle img-bw" src="/static/images/reward_template.png">\n'])
+    if count >=50:
+        extend_(['                    ', u'<img class="reward-image img-circle" src="/static/images/reward_template.png">\n'])
+    else:
+        extend_(['                    ', u'<img class="reward-image img-circle img-bw" src="/static/images/reward_template.png">\n'])
     extend_([u'                    <h4>50 Friends</h4>\n'])
     extend_([u'                </div>\n'])
     extend_([u'            </div>\n'])
+    extend_([u'\n'])
+    extend_([u'            <!-- Rewards Progress Bar -->\n'])
     extend_([u'            <div class="progress">\n'])
-    extend_([u'                <div class="progress-bar progress-bar-warning" role="progressbar" style="width:25%">\n'])
-    extend_([u'                    Free Shirt\n'])
+    extend_([u'\n'])
+    extend_([u'                <!-- First Reward -->\n'])
+    firstRewardPercent = 0
+    if count > 5:
+        firstRewardPercent = 25
+    else:
+        firstRewardPercent = count * 5
+    if firstRewardPercent < 25:
+        extend_(['                ', u'<div class="progress-bar progress-bar-almost" role="progressbar" style="width:', escape_(firstRewardPercent, True), u'%">\n'])
+    else:
+        extend_(['                ', u'<div class="progress-bar progress-bar-warning" role="progressbar" style="width:', escape_(firstRewardPercent, True), u'%">\n'])
+        extend_(['                ', u'Free Shirt\n'])
     extend_([u'                </div>\n'])
-    extend_([u'                <div class="progress-bar progress-bar-danger" role="progressbar" style="width:25%">\n'])
-    extend_([u'                    Free Jeans\n'])
-    extend_([u'                </div>\n'])
-    extend_([u'                <div class="progress-bar progress-bar-info" role="progressbar" style="width:25%">\n'])
-    extend_([u'                    Free Sweatshirt\n'])
-    extend_([u'                </div>\n'])
-    extend_([u'                <div class="progress-bar progress-bar-success" role="progressbar" style="width:0%">\n'])
-    extend_([u'                    Free Dress\n'])
-    extend_([u'                </div>\n'])
+    extend_([u'\n'])
+    extend_([u'                <!-- Second Reward -->\n'])
+    secondRewardPercent = 0
+    if count > 5:
+        if count > 10:
+            secondRewardPercent = 25
+        else:
+            secondRewardPercent = (count - 5) * 5
+        if secondRewardPercent < 25:
+            extend_(['                ', u'<div class="progress-bar progress-bar-almost" role="progressbar" style="width:', escape_(secondRewardPercent, True), u'%">\n'])
+        else:
+            extend_(['                ', u'<div class="progress-bar progress-bar-danger" role="progressbar" style="width:', escape_(secondRewardPercent, True), u'%">\n'])
+            extend_(['                ', u'Free Pants\n'])
+        extend_(['                ', u'</div>\n'])
+        extend_(['                ', u'\n'])
+    extend_([u'                <!-- Third Reward -->\n'])
+    thirdRewardPercent = 0
+    if count > 10:
+        if count > 25:
+            thirdRewardPercent = 25
+        else:
+            thirdRewardPercent = (count - 10) * (25/15.0)
+        if thirdRewardPercent < 25:
+            extend_(['                ', u'<div class="progress-bar progress-bar-almost" role="progressbar" style="width:', escape_(thirdRewardPercent, True), u'%">\n'])
+        else:
+            extend_(['                ', u'<div class="progress-bar progress-bar-info" role="progressbar" style="width:', escape_(thirdRewardPercent, True), u'%">\n'])
+            extend_(['                ', u'Free Sweatshirt\n'])
+        extend_(['                ', u'</div>\n'])
+        extend_(['                ', u'\n'])
+    extend_([u'                <!-- Fourth Reward -->\n'])
+    fourthRewardPercent = 0
+    if count > 25:
+        if count > 50:
+            fourthRewardPercent = 25
+        else:
+            fourthRewardPercent = count - 25
+        if fourthRewardPercent < 25:
+            extend_(['                ', u'<div class="progress-bar progress-bar-almost" role="progressbar" style="width:', escape_(fourthRewardPercent, True), u'%">\n'])
+        else:
+            extend_(['                ', u'<div class="progress-bar progress-bar-success" role="progressbar" style="width:', escape_(fourthRewardPercent, True), u'%">\n'])
+            extend_(['                ', u'Free Dress\n'])
+        extend_(['                ', u'</div>\n'])
     extend_([u'            </div>\n'])
     extend_([u'        </div>\n'])
     extend_([u'    </div>\n'])

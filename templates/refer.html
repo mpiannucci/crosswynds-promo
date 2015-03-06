@@ -2,6 +2,7 @@ $def with (count, ref_url)
 
 <div class="row">
     <div id="confimationHeader" class="col-lg-12 confirmation-header">
+        <!-- Header bar -->
         <div class="container">
             <h4>Thanks for signing up!</h4>
         </div>
@@ -15,14 +16,20 @@ $def with (count, ref_url)
                 <h3>Share your unique link with your friends to earn rewards!</h3>
                 <h4>The more of your friends join, the more free merchandise you earn.</h4>
             </div>
+
+            <!-- Referral URL -->
             <div class="col-sm-4 col-sm-offset-3 center-align">
                 <input id="referral_display" class="form-control input ref-url-display" type="text" value='$ref_url' readonly>
             </div>
+
+            <!-- Facebook Link -->
             <div class="col-sm-1">
                 <a href="http://www.facebook.com/sharer/sharer.php?u=$ref_url&title=Matthew">
                     <img class="social-logo" src="/static/images/facebook_logo.png" />
                 </a>
-            </div>                       
+            </div>
+
+            <!-- Twitter Link -->                  
             <div class="col-sm-1">
                 <a href="http://twitter.com/share?url=$ref_url&text=Imhappy">
                     <img class="social-logo" src="/static/images/twitter_logo.png" />
@@ -32,38 +39,99 @@ $def with (count, ref_url)
     </div>
     <div id="scoreArea" class="col-lg-12 center-align">
         <div class="container">
+
+            <!-- Friend Referral Score -->
             <h3>$count of your friends have joined!</h3>
+
+            <!-- Reward Pictures -->
             <div class="row">
-                <div class="col-sm-3">
-                    <img class="reward-image img-circle" src="/static/images/reward_template.png">
+                <div class="col-sm-3">  
+                    $if count >= 5:
+                        <img class="reward-image img-circle" src="/static/images/reward_template.png">
+                    $else:
+                        <img class="reward-image img-circle img-bw" src="/static/images/reward_template.png">                
                     <h4>5 Friends</h4>
                 </div>
                 <div class="col-sm-3">
-                    <img class="reward-image img-circle" src="/static/images/reward_template.png">
+                    $if count >= 10:
+                        <img class="reward-image img-circle" src="/static/images/reward_template.png">
+                    $else:
+                        <img class="reward-image img-circle img-bw" src="/static/images/reward_template.png">
                     <h4>10 Friends</h4>
                 </div>
                 <div class="col-sm-3">
-                    <img class="reward-image img-circle" src="/static/images/reward_template.png">
+                    $if count >=25:
+                        <img class="reward-image img-circle" src="/static/images/reward_template.png">
+                    $else:
+                        <img class="reward-image img-circle img-bw" src="/static/images/reward_template.png">
                     <h4>25 Friends</h4>
                 </div>
                 <div class="col-sm-3">
-                    <img class="reward-image img-circle img-bw" src="/static/images/reward_template.png">
+                    $if count >=50:
+                        <img class="reward-image img-circle" src="/static/images/reward_template.png">
+                    $else:
+                        <img class="reward-image img-circle img-bw" src="/static/images/reward_template.png">
                     <h4>50 Friends</h4>
                 </div>
             </div>
+
+            <!-- Rewards Progress Bar -->
             <div class="progress">
-                <div class="progress-bar progress-bar-warning" role="progressbar" style="width:25%">
+
+                <!-- First Reward -->
+                $ firstRewardPercent = 0
+                $if count > 5:
+                    $ firstRewardPercent = 25
+                $else:
+                    $ firstRewardPercent = count * 5
+                $if firstRewardPercent < 25:
+                    <div class="progress-bar progress-bar-almost" role="progressbar" style="width:$firstRewardPercent%">
+                $else:
+                    <div class="progress-bar progress-bar-warning" role="progressbar" style="width:$firstRewardPercent%">
                     Free Shirt
                 </div>
-                <div class="progress-bar progress-bar-danger" role="progressbar" style="width:25%">
-                    Free Jeans
-                </div>
-                <div class="progress-bar progress-bar-info" role="progressbar" style="width:25%">
-                    Free Sweatshirt
-                </div>
-                <div class="progress-bar progress-bar-success" role="progressbar" style="width:0%">
-                    Free Dress
-                </div>
+
+                <!-- Second Reward -->
+                $ secondRewardPercent = 0
+                $if count > 5:
+                    $if count > 10:
+                        $ secondRewardPercent = 25
+                    $else:
+                         $ secondRewardPercent = (count - 5) * 5
+                    $if secondRewardPercent < 25:
+                        <div class="progress-bar progress-bar-almost" role="progressbar" style="width:$secondRewardPercent%">
+                    $else:
+                        <div class="progress-bar progress-bar-danger" role="progressbar" style="width:$secondRewardPercent%">
+                        Free Pants
+                    </div>
+
+                <!-- Third Reward -->
+                $ thirdRewardPercent = 0
+                $if count > 10:
+                    $if count > 25:
+                        $ thirdRewardPercent = 25
+                    $else:
+                        $ thirdRewardPercent = (count - 10) * (25/15.0)
+                    $if thirdRewardPercent < 25:
+                        <div class="progress-bar progress-bar-almost" role="progressbar" style="width:$thirdRewardPercent%">
+                    $else:
+                        <div class="progress-bar progress-bar-info" role="progressbar" style="width:$thirdRewardPercent%">
+                        Free Sweatshirt
+                    </div>
+
+                <!-- Fourth Reward -->
+                $ fourthRewardPercent = 0
+                $if count > 25:
+                    $if count > 50:
+                        $ fourthRewardPercent = 25
+                    $else:
+                        $ fourthRewardPercent = count - 25
+                    $if fourthRewardPercent < 25:
+                        <div class="progress-bar progress-bar-almost" role="progressbar" style="width:$fourthRewardPercent%">
+                    $else:
+                        <div class="progress-bar progress-bar-success" role="progressbar" style="width:$fourthRewardPercent%">
+                        Free Dress
+                    </div>
             </div>
         </div>
     </div>
