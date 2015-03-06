@@ -1,4 +1,4 @@
-$def with (count)
+$def with (count, ref_url)
 
 <div class="row">
     <div id="confimationHeader" class="col-lg-12 confirmation-header">
@@ -9,29 +9,62 @@ $def with (count)
     <div id="sharingImage" class="col-lg-12 sharing-jumbotron">
         <!-- Large Sharing image -->
     </div>
-    <div id="sharingArea" class="col-lg-12">
+    <div id="sharingArea" class="col-lg-12 center-align">
         <div class="container">
             <div class="col-sm-12">
-                <h2>Share your unique link with your friends to earn rewards!</h2>
+                <h3>Share your unique link with your friends to earn rewards!</h3>
+                <h4>The more of your friends join, the more free merchandise you earn.</h4>
             </div>
-            <div class="col-sm-3 col-sm-offset-3 social-logo">
-                <a href="http://www.facebook.com/sharer/sharer.php?u=http://mpiannucci.com/apps&title=Matthew">
-                    <img style="max-height:220px" src="/static/images/facebook_logo.png" />
+            <div class="col-sm-4 col-sm-offset-3 center-align">
+                <input id="referral_display" class="form-control input ref-url-display" type="text" value='$ref_url' readonly>
+            </div>
+            <div class="col-sm-1">
+                <a href="http://www.facebook.com/sharer/sharer.php?u=$ref_url&title=Matthew">
+                    <img class="social-logo" src="/static/images/facebook_logo.png" />
                 </a>
             </div>                       
-            <div class="col-sm-3 social-logo">
-                <a href="http://twitter.com/share?url=http://mpiannucci.com/apps&text=Imhappy">
-                    <img style="max-height:220px" src="/static/images/twitter_logo.png" />
+            <div class="col-sm-1">
+                <a href="http://twitter.com/share?url=$ref_url&text=Imhappy">
+                    <img class="social-logo" src="/static/images/twitter_logo.png" />
                 </a>
-            </div>
-            <div class="col-sm-12">
-                <h4>The more of your friends join, the more free merchandise you earn.</h4>
             </div>
         </div>
     </div>
-    <div id="scoreArea" class="col-lg-12">
+    <div id="scoreArea" class="col-lg-12 center-align">
         <div class="container">
             <h3>$count of your friends have joined!</h3>
+            <div class="row">
+                <div class="col-sm-3">
+                    <img class="reward-image img-circle" src="/static/images/reward_template.png">
+                    <h4>5 Friends</h4>
+                </div>
+                <div class="col-sm-3">
+                    <img class="reward-image img-circle" src="/static/images/reward_template.png">
+                    <h4>10 Friends</h4>
+                </div>
+                <div class="col-sm-3">
+                    <img class="reward-image img-circle" src="/static/images/reward_template.png">
+                    <h4>25 Friends</h4>
+                </div>
+                <div class="col-sm-3">
+                    <img class="reward-image img-circle img-bw" src="/static/images/reward_template.png">
+                    <h4>50 Friends</h4>
+                </div>
+            </div>
+            <div class="progress">
+                <div class="progress-bar progress-bar-warning" role="progressbar" style="width:25%">
+                    Free Shirt
+                </div>
+                <div class="progress-bar progress-bar-danger" role="progressbar" style="width:25%">
+                    Free Jeans
+                </div>
+                <div class="progress-bar progress-bar-info" role="progressbar" style="width:25%">
+                    Free Sweatshirt
+                </div>
+                <div class="progress-bar progress-bar-success" role="progressbar" style="width:0%">
+                    Free Dress
+                </div>
+            </div>
         </div>
     </div>
 </div>

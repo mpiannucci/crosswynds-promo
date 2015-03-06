@@ -1,6 +1,7 @@
 import web
 import models
 import mailers
+import config
 
 render = web.render
 
@@ -67,7 +68,8 @@ class Refer:
 
         # Get the score and pass it to the referal page
         score = models.get_referal_count(int(refid))
-        return render.refer(score)
+        ref_url = config.base_url + refid
+        return render.refer(score, ref_url)
 
 class PrivacyPolicy:
     ''' Show the user the privacy policy '''
