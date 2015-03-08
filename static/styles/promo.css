@@ -108,3 +108,7 @@ input[readonly].default-cursor {
 }
 
 /* Privacy Policy */
+#privacyTitle {
+    background-color: #00c6ff;
+    color: #FFFFFF;
+}
