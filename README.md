@@ -36,3 +36,7 @@ First, compile the templates used by `web.py`:
 Then, run the development web server
 
     dev_appserver.py app.yaml
+
+License
+-----------------------
+Licensed under the [MIT License](LICENSE).
