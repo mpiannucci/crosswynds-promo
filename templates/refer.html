@@ -19,7 +19,7 @@ $def with (count, ref_url)
 
             <!-- Referral URL -->
             <div class="col-sm-4 col-sm-offset-3 center-align">
-                <input id="referral_display" class="form-control input ref-url-display" type="text" value='$ref_url' readonly>
+                <input id="referral_display" class="form-control input ref-url-display default-cursor hvr-grow" type="text" value='$ref_url' onclick="onReferralURLClick()" readonly="readonly">
             </div>
 
             <!-- Facebook Link -->
@@ -132,6 +132,13 @@ $def with (count, ref_url)
                         <div class="progress-bar progress-bar-success" role="progressbar" style="width:$fourthRewardPercent%">
                         Free Dress
                     </div>
+
+                <!-- If nothing has been earned -->
+                $if count < 1:
+                    <div class="progress-bar progress-bar-almost" role="progressbar" style="width:100%">
+                        You haven't earned any points yet.. Check back soon!
+                    </div>
+
             </div>
         </div>
     </div>
