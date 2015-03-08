@@ -6,8 +6,9 @@ def send_test_email(user_email):
     body = "This is a test email from the prelaunch website!"
     mail.send_mail(config.application_email, user_email, subject, body)
 
-def send_signup_email(user_email, referal_url):
+def send_signup_email(user_email, referral_id):
     subject = "Crosswynds Traders Prelaunch"
+    referal_url = config.base_url + referral_id
     body = """
 Hi!! Thank you for signing up for Crosswynds Traders Prelaunch!! 
 
@@ -17,5 +18,5 @@ Share the link below with your friends to include them in the fun! Don't forget 
 
 Crosswynds Traders
 """ % referal_url
-    
+
     mail.send_mail(config.application_email, user_email, subject, body)

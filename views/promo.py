@@ -46,12 +46,12 @@ class Index:
                         models.increment_ip_count(ip)
                     else:
                         models.create_ip_address(ip)
-                    # Create a new user
+
+                    # Create a new user adn send signup email
                     refid = models.create_user(email, int(referer))
-                    ref_url = "/" + str(refid)
+                    mailers.send_signup_email(email, str(refid))
                     
-                    # TODO: Send confirmation email
-                    
+                    # Send the user to the referral page
                     raise web.seeother('/refer/' + str(refid))
         else:
             return render.new(form)
