@@ -89,7 +89,7 @@ body {
 }
 
 input[readonly].default-cursor {
-    cursor: default;
+    cursor: pointer;
 }
 
 #scoreArea {
@@ -105,6 +105,11 @@ input[readonly].default-cursor {
 
 .progress-bar-almost {
     background: rgba(168, 168, 168, 1);
+}
+
+#referFooter {
+    background-color: rgba(147, 229, 184, 0.5);
+    padding-bottom: 10px;
 }
 
 /* Privacy Policy */
