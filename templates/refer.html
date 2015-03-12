@@ -24,14 +24,14 @@ $def with (count, ref_url)
 
             <!-- Facebook Link -->
             <div class="col-sm-1">
-                <a class="hvr-grow" href="http://www.facebook.com/sharer/sharer.php?u=$ref_url&title=Matthew">
+                <a class="hvr-grow" href="http://www.facebook.com/sharer/sharer.php?u=$ref_url&title=Crosswynds">
                     <img class="social-logo" src="/static/images/facebook_logo.png" />
                 </a>
             </div>
 
             <!-- Twitter Link -->                  
             <div class="col-sm-1">
-                <a class="hvr-grow" href="http://twitter.com/share?url=$ref_url&text=Imhappy">
+                <a class="hvr-grow" href="http://twitter.com/share?url=$ref_url&text=I+can't+wait+for Crosswynds+online+store+to+launch!+Im+gunna+be+hitting+the+beach+in+style">
                     <img class="social-logo" src="/static/images/twitter_logo.png" />
                 </a>
             </div>
@@ -47,30 +47,30 @@ $def with (count, ref_url)
             <div class="row">
                 <div class="col-sm-3">  
                     $if count >= 5:
-                        <img class="reward-image img-circle" src="/static/images/reward_template.png">
+                        <img class="reward-image img-circle hvr-grow" src="/static/images/five_friends.png">
                     $else:
-                        <img class="reward-image img-circle img-bw" src="/static/images/reward_template.png">                
+                        <img class="reward-image img-circle img-bw hvr-grow" src="/static/images/five_friends.png">                
                     <h4>5 Friends</h4>
                 </div>
                 <div class="col-sm-3">
                     $if count >= 10:
-                        <img class="reward-image img-circle" src="/static/images/reward_template.png">
+                        <img class="reward-image img-circle hvr-grow" src="/static/images/ten_friends.png">
                     $else:
-                        <img class="reward-image img-circle img-bw" src="/static/images/reward_template.png">
+                        <img class="reward-image img-circle img-bw hvr-grow" src="/static/images/ten_friends.png">
                     <h4>10 Friends</h4>
                 </div>
                 <div class="col-sm-3">
                     $if count >=25:
-                        <img class="reward-image img-circle" src="/static/images/reward_template.png">
+                        <img class="reward-image img-circle hvr-grow" src="/static/images/twentyfive_friends.png">
                     $else:
-                        <img class="reward-image img-circle img-bw" src="/static/images/reward_template.png">
+                        <img class="reward-image img-circle img-bw hvr-grow" src="/static/images/twentyfive_friends.png">
                     <h4>25 Friends</h4>
                 </div>
                 <div class="col-sm-3">
                     $if count >=50:
-                        <img class="reward-image img-circle" src="/static/images/reward_template.png">
+                        <img class="reward-image img-circle hvr-grow" src="/static/images/spirit_jersey.png">
                     $else:
-                        <img class="reward-image img-circle img-bw" src="/static/images/reward_template.png">
+                        <img class="reward-image img-circle img-bw hvr-grow" src="/static/images/spirit_jersey.png">
                     <h4>50 Friends</h4>
                 </div>
             </div>
@@ -87,8 +87,8 @@ $def with (count, ref_url)
                 $if firstRewardPercent < 25:
                     <div class="progress-bar progress-bar-almost" role="progressbar" style="width:$firstRewardPercent%">
                 $else:
-                    <div class="progress-bar progress-bar-warning" role="progressbar" style="width:$firstRewardPercent%">
-                    Free Shirt
+                    <div class="progress-bar progress-bar-salmon" role="progressbar" style="width:$firstRewardPercent%">
+                    \$10 Off Coupon
                 </div>
 
                 <!-- Second Reward -->
@@ -101,8 +101,8 @@ $def with (count, ref_url)
                     $if secondRewardPercent < 25:
                         <div class="progress-bar progress-bar-almost" role="progressbar" style="width:$secondRewardPercent%">
                     $else:
-                        <div class="progress-bar progress-bar-danger" role="progressbar" style="width:$secondRewardPercent%">
-                        Free Pants
+                        <div class="progress-bar progress-bar-purple" role="progressbar" style="width:$secondRewardPercent%">
+                        \$20 Off Coupon
                     </div>
 
                 <!-- Third Reward -->
@@ -115,8 +115,8 @@ $def with (count, ref_url)
                     $if thirdRewardPercent < 25:
                         <div class="progress-bar progress-bar-almost" role="progressbar" style="width:$thirdRewardPercent%">
                     $else:
-                        <div class="progress-bar progress-bar-info" role="progressbar" style="width:$thirdRewardPercent%">
-                        Free Sweatshirt
+                        <div class="progress-bar progress-bar-blue" role="progressbar" style="width:$thirdRewardPercent%">
+                        \$50 Off Coupon
                     </div>
 
                 <!-- Fourth Reward -->
@@ -129,8 +129,8 @@ $def with (count, ref_url)
                     $if fourthRewardPercent < 25:
                         <div class="progress-bar progress-bar-almost" role="progressbar" style="width:$fourthRewardPercent%">
                     $else:
-                        <div class="progress-bar progress-bar-success" role="progressbar" style="width:$fourthRewardPercent%">
-                        Free Dress
+                        <div class="progress-bar progress-bar-green" role="progressbar" style="width:$fourthRewardPercent%">
+                        Free Spirit Jersey
                     </div>
 
                 <!-- If nothing has been earned -->
@@ -145,7 +145,6 @@ $def with (count, ref_url)
 </div>
 <div class="row">
     <div id="referFooter" class="col-sm-12 center-align">
-        Copyright 2015 Matthew Iannucci<br>
         <a href="/privacy">Privacy Policy</a>
     </div>
 </div>
