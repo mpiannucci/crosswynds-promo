@@ -2,6 +2,18 @@ from web.template import CompiledTemplate, ForLoop, TemplateResult
 
 
 # coding: utf-8
+def admin():
+    __lineoffset__ = -5
+    loop = ForLoop()
+    self = TemplateResult(); extend_ = self.extend
+    extend_([u'You are admin\n'])
+
+    return self
+
+admin = CompiledTemplate(admin, 'templates/admin.html')
+join_ = admin._join; escape_ = admin._escape
+
+# coding: utf-8
 def base (page):
     __lineoffset__ = -4
     loop = ForLoop()

@@ -3,5 +3,6 @@
 urls = (
     '/(\d+)?', 'Index',
     '/refer/(\d+)?', 'Refer',
-    '/privacy', 'PrivacyPolicy'
+    '/privacy', 'PrivacyPolicy',
+    '/admin', 'Admin'
 )
