@@ -14,9 +14,7 @@ class Admin:
             count = models.get_user_count()
             return render.admin(count, user)
         else:
-            count = models.get_user_count()
-            return render.admin(count, user)
-            # raise web.redirect(users.create_login_url('/admin'))
+            raise web.redirect(users.create_login_url('/admin'))
 
     def POST(self):
         user = users.get_current_user()
