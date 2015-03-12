@@ -12,10 +12,11 @@ def send_signup_email(user_email, referral_id):
     body = """
 Hi!! Thank you for signing up for Crosswynds Traders Prelaunch!! 
 
-Share the link below with your friends to include them in the fun! Don't forget to check back and see what you've earned!
+Don't leave your friends on the beach, share the link below with your friends to include them in the fun! Don't forget to check back and see what you've earned!
 
 %s
 
+Sincerely, 
 Crosswynds Traders
 """ % referal_url
 
