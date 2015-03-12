@@ -55,3 +55,13 @@ def get_referal_count(refid):
     ref_query = db.Query(User)
     ref_query.filter('referer =', refid)
     return ref_query.count()
+
+def get_user_count():
+    ''' Get the total number of users '''
+    user_query = User.all()
+    return user_query.count()
+
+def get_all_users():
+    ''' Get all of the user emails '''
+    user_query = User.all()
+    return user_query.run()

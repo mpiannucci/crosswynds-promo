@@ -2,11 +2,27 @@ from web.template import CompiledTemplate, ForLoop, TemplateResult
 
 
 # coding: utf-8
-def admin():
-    __lineoffset__ = -5
+def admin (count, admin):
+    __lineoffset__ = -4
     loop = ForLoop()
     self = TemplateResult(); extend_ = self.extend
-    extend_([u'You are admin\n'])
+    extend_([u'\n'])
+    extend_([u'<div class="row">\n'])
+    extend_([u'    <div class="col-sm-12 jumbotron admin-jumbotron">\n'])
+    extend_([u'        <div class="container">\n'])
+    extend_([u'            <h1>Admin Interface</h1>\n'])
+    extend_([u'            <p>Logged in as ', escape_(admin, True), u'</p>\n'])
+    extend_([u'        </div>\n'])
+    extend_([u'    </div>\n'])
+    extend_([u'    <div class="col-sm-12">\n'])
+    extend_([u'        <div class="container">\n'])
+    extend_([u'            <h2>', escape_(count, True), u' Emails Collected</h2>\n'])
+    extend_([u'            <form action="" method="POST">\n'])
+    extend_([u'                <input id="showEmailButton"  type="submit" class="btn btn-primary" value="Download Email List"/>\n'])
+    extend_([u'            </form>\n'])
+    extend_([u'        </div>\n'])
+    extend_([u'    </div>\n'])
+    extend_([u'</div>\n'])
 
     return self
 

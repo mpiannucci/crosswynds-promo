@@ -133,3 +133,13 @@ input[readonly].default-cursor {
     background-color: #00c6ff;
     color: #FFFFFF;
 }
+
+/* Admin Page */
+.admin-jumbotron {
+    background-color: #00c6ff;
+    color: #FFFFFF;
+}
+
+#emailList {
+    padding-top: 15px;
+}

@@ -1,7 +1,5 @@
 import web
 import models
-import mailers
-import config
 
 from google.appengine.api import users
 
@@ -13,7 +11,21 @@ class Admin:
     def GET(self):
         user = users.get_current_user()
         if user and users.is_current_user_admin():
-            return render.admin()
+            count = models.get_user_count()
+            return render.admin(count, user)
         else:
-            return render.admin()
-            #raise web.redirect(users.create_login_url('/admin'))
+            count = models.get_user_count()
+            return render.admin(count, user)
+            # raise web.redirect(users.create_login_url('/admin'))
+
+    def POST(self):
+        user = users.get_current_user()
+        if user and users.is_current_user_admin():
+            all_users = models.get_all_users()
+            email_list = []
+            for user in all_users:
+                email_list.append(user.email)
+                email_list.append("\n")
+            email_joined_list = "".join(email_list)
+            web.header('Content-Type', 'text/plain')
+            return email_joined_list
