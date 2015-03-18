@@ -69,7 +69,18 @@ def ip_block():
     __lineoffset__ = -5
     loop = ForLoop()
     self = TemplateResult(); extend_ = self.extend
-    extend_([u'Too many attempts from your computer\n'])
+    extend_([u'<div class="row">\n'])
+    extend_([u'    <div id="comingSoonHeader" class="col-lg-12 jumbotron comingsoon-jumbotron">\n'])
+    extend_([u'        <!-- Header Image -->\n'])
+    extend_([u'    </div>\n'])
+    extend_([u'    <div id="signUpArea" class="col-sm-6">\n'])
+    extend_([u'        <!-- Sign Up Form -->\n'])
+    extend_([u'        <div class="container">\n'])
+    extend_([u'            <h3 id="tooManyLogins">You have already made an account!</h3>\n'])
+    extend_([u'            <p>Check your email for your referal link, or <a href="/">try to log in</a> again</p>\n'])
+    extend_([u'        </div>\n'])
+    extend_([u'    </div>\n'])
+    extend_([u'</div>\n'])
 
     return self
 
@@ -91,9 +102,10 @@ def new (form):
     extend_([u'        <div class="container">\n'])
     extend_([u"            <h1>Don't Get Left Behind at the Beach!</h1>\n"])
     extend_([u'            <h3>Sign up early and earn rewards</h3>\n'])
-    extend_([u'                <form method="POST">\n'])
-    extend_([u'                    ', escape_(form.render_css(), False), u'\n'])
-    extend_([u'                </form>\n'])
+    extend_([u'            <form method="POST">\n'])
+    extend_([u'                ', escape_(form.render_css(), False), u'\n'])
+    extend_([u'            </form>\n'])
+    extend_([u'            <p>If you have signed up already, enter your email to log in to see what you have earned so far! You will not be added multiple times.</p>\n'])
     extend_([u'        </div>\n'])
     extend_([u'    </div>\n'])
     extend_([u'</div>\n'])

@@ -20,6 +20,10 @@ body {
     margin: 10px;
 }
 
+#tooManyLogins {
+  color: red;
+}
+
 /* Referral page */
 .confirmation-header {
     background-color: #00c6ff;
