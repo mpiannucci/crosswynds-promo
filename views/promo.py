@@ -8,9 +8,9 @@ render = web.render
 email_validator = web.form.regexp(r".*@.*.", "Must be a valid email address")
 email_form = web.form.Form(
     web.form.Textbox('email', email_validator,
-        size=23,
+        size=40,
         description='',
-        placeholder='Enter your email',
+        placeholder='Enter your email to sign up or log in',
         class_='form-horizontal email-form'),
     web.form.Button('Enter', type='submit', description='Enter', class_='btn btn-primary email-form')
 )

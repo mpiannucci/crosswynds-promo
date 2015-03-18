@@ -105,7 +105,7 @@ def new (form):
     extend_([u'            <form method="POST">\n'])
     extend_([u'                ', escape_(form.render_css(), False), u'\n'])
     extend_([u'            </form>\n'])
-    extend_([u'            <p>If you have signed up already, enter your email to log in to see what you have earned so far! You will not be added multiple times.</p>\n'])
+    extend_([u'            <!-- <p>If you have signed up already, enter your email to log in to see what you have earned so far! You will not be added multiple times.</p>-->\n'])
     extend_([u'        </div>\n'])
     extend_([u'    </div>\n'])
     extend_([u'</div>\n'])
