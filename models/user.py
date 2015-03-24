@@ -47,7 +47,11 @@ def does_user_exist(email):
     ''' Get a boolean if the user exists in the database '''
     user = get_user(email)
     if user is None:
-        return False
+        user_caps = get_user(email.title())
+        if user_caps is None:
+            return False
+        else:
+            return True
     return True
 
 def get_referal_count(refid):
