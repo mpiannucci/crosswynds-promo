@@ -41,6 +41,7 @@ def base (page):
     extend_([u'<head>\n'])
     extend_([u'    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n'])
     extend_([u'    <title>Crosswynds Traders</title>\n'])
+    extend_([u'    <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico" />\n'])
     extend_([u'    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">\n'])
     extend_([u'    <link rel="stylesheet" href="/static/styles/promo.css">\n'])
     extend_([u'    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>\n'])
