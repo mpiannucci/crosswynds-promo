@@ -11,7 +11,7 @@ class User(db.Model):
 def create_user(email, referer):
     ''' Add a new user to the database. If there is no referer, the code will be 0 '''
     new_user = User()
-    new_user.email = email
+    new_user.email = email.lower()
     new_user.referer = referer
 
     # Get the newest user and increment the id counter
@@ -28,13 +28,13 @@ def create_user(email, referer):
 def delete_user(email):
     ''' Delete a user from the database '''
     user_query = db.Query(User)
-    user_query.filter('email =', email)
+    user_query.filter('email =', email.lower())
     db.delete(user_query.get())
 
 def get_user(email):
     ''' Get a user by email '''
     user_query = db.Query(User)
-    user_query.filter('email =', email)
+    user_query.filter('email =', email.lower())
     return user_query.get()
 
 def get_user_by_refid(refid):
@@ -45,13 +45,9 @@ def get_user_by_refid(refid):
 
 def does_user_exist(email):
     ''' Get a boolean if the user exists in the database '''
-    user = get_user(email)
+    user = get_user(email.lower())
     if user is None:
-        user_caps = get_user(email.title())
-        if user_caps is None:
-            return False
-        else:
-            return True
+        return False
     return True
 
 def get_referal_count(refid):
