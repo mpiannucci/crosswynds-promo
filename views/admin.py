@@ -20,9 +20,13 @@ class Admin:
         user = users.get_current_user()
         if user and users.is_current_user_admin():
             all_users = models.get_all_users()
-            email_list = []
+            email_list = ["Email, Score", "\n----------------------------------------------------------------------\n"]
             for user in all_users:
                 email_list.append(user.email)
+
+                count = models.get_referal_count(user.referal_id)
+                email_list.append(", " + str(count))
+
                 email_list.append("\n")
             email_joined_list = "".join(email_list)
             web.header('Content-Type', 'text/plain')
