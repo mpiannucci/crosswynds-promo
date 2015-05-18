@@ -34,7 +34,7 @@ Created using the [web.py](https://github.com/webpy/webpy) framework for python 
 
 Download the `web.py` Python module:
 
-    cd myPage/
+    cd crosswynds-promo/
     pip install web.py -t .
     rm -r web.py-0.37.egg-info/
 
