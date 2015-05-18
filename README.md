@@ -10,6 +10,17 @@ The original web app was written with Ruby on Rails, which I do not know. I deci
 
 The main motivation for this project is email harvesting to create a mailing list. That mailing list is crucial when a new online product or site is being launched and you need to get the word out when youre ready to sell. 
 
+Modifying It for Your Company/Cause/Product
+-----------------------
+This site can be quickly modified for your own use. However it takes some technical knowledge, specifically of CSS, HTML. Python knowledge isn't necessary but it certaintly wouldn't hurt. Below are the general steps that need to be followed to produce your own version of the webapp. 
+
+1. Using your Google account (or make one if you don't have one), login to http://console.developers.google.com . You need to create a new project with whatever name you want to deploy to. 
+2. Get the dependencies described below by the "Developers" section of this document. 
+3. Modify the HTML and images to match your brand. All of the images and HTML included are targeted for Crosswynds Traders. You will need to work to make these look like they are specifically for your own target.
+4. Follow the Development instructions to compile your HTML files and test the program locally. If you like what you see and you're ready to launch, follow the instructions to deploy your app. 
+5. SHARE with anyone and everyone to maximize feedback (NOTE: If your product is REAAALLLYY popular, you may have to [request increase mail usage](https://cloud.google.com/appengine/docs/quotas#Mail).
+6. When your promotion is over, be sure to disable the application. 
+
 Development
 -----------------------
 Created using the [web.py](https://github.com/webpy/webpy) framework for python 2.7 and the [Google App Engine](https://cloud.google.com/appengine/docs/python/gettingstartedpython27/introduction).
